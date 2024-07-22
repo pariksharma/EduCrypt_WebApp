@@ -1,0 +1,9 @@
+.userBtn{
+    color: #fff;
+    background: #FF7426;
+    font-size: 12px;
+}
+
+.userBtn:hover {
+    border: 1px solid#FF7426;
+}
