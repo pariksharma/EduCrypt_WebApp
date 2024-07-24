@@ -70,9 +70,16 @@ input.searchBar {
     background-color: rgb(255, 112, 3) !important;
 }
 
+.banner_img img{
+    height: 300px;
+}
+
 @media (min-width: 992px) and (max-width: 1199px) {
     .owl-carousel .carousel-indicators{
         bottom: -23%;
+    }
+    .banner_img img{
+        height: 200px;
     }
 } 
 
@@ -80,11 +87,17 @@ input.searchBar {
     .owl-carousel .carousel-indicators{
         bottom: -30%;
     }
+    .banner_img img{
+        height: 200px;
+    }
 }
 
 @media (min-width: 577px) and (max-width: 767px) {
     .owl-carousel .carousel-indicators{
         bottom: -40%;
+    }
+    .banner_img img{
+        height: 150px;
     }
 }
 
@@ -92,12 +105,18 @@ input.searchBar {
     .owl-carousel .carousel-indicators{
         bottom: -43%;
     }
+    .banner_img img{
+        height: 150px;
+    }
 }
 
 @media (min-width: 320px) and (max-width: 490px) {
     .owl-carousel .carousel-indicators{
         /* bottom: -47%; */
         bottom: -45px;
+    }
+    .banner_img img{
+        height: 100px;
     }
 }
 
@@ -368,67 +387,67 @@ input.searchBar {
 
 @media (min-width: 577px) and (max-width: 767px) {
     .freeTC_container .nav-link {
-        font-weight: 500;
-        font-size: 30px;
+        font-weight: 500 !important;
+        font-size: 30px !important;
     }
 
     .freeTC_container .nav-link:hover {
-        font-weight: 500;
-        font-size: 30px;
+        font-weight: 500 !important;
+        font-size: 30px !important;
     }
 
     .freeTC_container .nav-link.active:hover {
-        font-weight: 500;
-        font-size: 30px;
+        font-weight: 500 !important;
+        font-size: 30px !important;
     }
 
     .freeTC_container .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-        font-weight: 500;
-        font-size: 30px;
+        font-weight: 500 !important;
+        font-size: 30px !important;
     }
 }
 
 @media (min-width: 320px) and (max-width: 576px) {
     .freeTC_container .nav-link {
-        font-weight: 500;
-        font-size: 26px;
+        font-weight: 500 !important;
+        font-size: 26px !important;
     }
 
     .freeTC_container .nav-link.active:hover{ 
-        font-weight: 500;
-        font-size: 26px
+        font-weight: 500 !important;
+        font-size: 26px !important;
     }
 
     .freeTC_container .nav-link:hover{
-        font-weight: 500;
-        font-size: 26px
+        font-weight: 500 !important;
+        font-size: 26px !important;
     }
 
     .freeTC_container .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-        font-weight: 500;
-        font-size: 26px;
+        font-weight: 500 !important;
+        font-size: 26px !important;
     }
 }
 
 @media (min-width: 320px) and (max-width: 421px) {
     .freeTC_container .nav-link {
-        font-weight: 500;
-        font-size: 18px;
+        font-weight: 500 !important;
+        font-size: 18px !important;
     }
 
     .freeTC_container .nav-link.active:hover{ 
-        font-weight: 500;
-        font-size: 18px
+        font-weight: 500 !important;
+        font-size: 18px !important;
     }
 
     .freeTC_container .nav-link:hover{
-        font-weight: 500;
-        font-size: 18px
+        font-weight: 500 !important;
+        font-size: 18px !important;
     }
 
     .freeTC_container .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
-        font-weight: 500;
-        font-size: 18px;
+        font-weight: 500 !important;
+        font-size: 18px !important;
     }
 }
 

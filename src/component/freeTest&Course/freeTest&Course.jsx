@@ -8,14 +8,14 @@ const Free_Test_Course = () => {
   const [key, setKey] = useState('course');
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(true);
-    }, 0);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setIsLoading(true);
+  //   }, 0);
+  // }, []);
 
   return (<>
-    {isLoading && <div className="container freeTC_container">
+    <div className="container freeTC_container">
       {freeTestAry || freeCourseAry ? (
         <div className='heading_tab'> 
           <Tabs
@@ -25,17 +25,17 @@ const Free_Test_Course = () => {
             className="mb-3 d-flex justify-content-center"
           >
             <Tab eventKey="course" title="Free Courses">
-              {isLoading && freeCourseAry && <FreeContent value={freeCourseAry} />}
+              {freeCourseAry && <FreeContent value={freeCourseAry} />}
             </Tab>
             <Tab eventKey="test" title="Free Test Series">
-              {isLoading && freeTestAry ? <FreeContent value={freeTestAry} /> 
+              {freeTestAry ? <FreeContent value={freeTestAry} /> 
               : 
               <div>Loading ....</div>}
             </Tab>
           </Tabs>
         </div>
       ) : null}
-    </div>}
+    </div>
   </>);
 }
 

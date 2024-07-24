@@ -3,7 +3,7 @@ import style from './carouselItem.module.css'
 
 const CarouselItem = (props) => {
   return (
-      <div className="card-img">
+      <div className="card-img banner_img">
         {props.value && <img src={props.value} className="img-fluid" alt="" />}
       </div>
   )

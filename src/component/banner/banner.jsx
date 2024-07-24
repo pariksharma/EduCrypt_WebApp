@@ -6,9 +6,9 @@ import CarouselItem from './carouselItem';
 // import "@/styles/globals.css";
 
 
-const Banner = () => {
+const Banner = ({value}) => {
     const [index, setIndex] = useState(0);
-    console.log(bannerAry)
+    // console.log(bannerAry)
 
     const handleSelect = useCallback((selectedIndex) => {
         setIndex(selectedIndex);
@@ -25,10 +25,10 @@ const Banner = () => {
                         className="owl-theme owl_custom owl-loaded owl-drag result p-0"
                         data-bs-touch="false"
                     >
-                        {bannerAry &&
-                            bannerAry.map((item, index) => (
+                        {value &&
+                            value.map((item, index) => (
                                 <Carousel.Item key={index}>
-                                    <CarouselItem value = {item} />
+                                    <CarouselItem value = {item.banner_url} />
                                 </Carousel.Item>
                             ))}
                     </Carousel>
