@@ -7,6 +7,7 @@ const axiosClient = axios.create({
 axiosClient.interceptors.request.use((req) => {
     const jwt = localStorage.getItem('jwt')
     const user_id = localStorage.getItem('user_id')
+    const app_id = localStorage.getItem('appId')
 
 
     // const headers = {
@@ -28,7 +29,7 @@ axiosClient.interceptors.request.use((req) => {
             // 'Centerid:'.$Centerid,
             'Content-Type': 'application/json',
             "Authorization": "Bearer 01*#NerglnwwebOI)30@I*Dm'@@",
-            "Appid": 427
+            "Appid": app_id ? app_id : 427 
     }
 
     req.headers = headers

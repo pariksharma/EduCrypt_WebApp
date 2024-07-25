@@ -289,7 +289,7 @@ input.searchBar {
     transform: scale(1.2);    
 }
 
-.explorebtn{
+.explorebtn button{
     position: absolute;
     left: 0;
     right: 0;
@@ -583,8 +583,9 @@ input.searchBar {
 }
 
 .slideTitle {
-    font-size: 12px;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Reddit Sans Condensed", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
     color: #363A3D;
 }
 .free-badge {
@@ -605,8 +606,33 @@ input.searchBar {
     font-size: 12px;
     padding: 5px 36px;
 }
+
+.courserate{
+    display: flex;
+}
+
+.freeCard .courserate .rating {
+    background-color: #0eb80e;
+    color: white;
+    align-items: center;
+    display: flex;
+    font-size: 13px;
+    padding: 0px 4px;
+    border-radius: 5px;
+}
+
+.freeCard .courserate .rating svg{
+    font-size: 10px;
+}
+
+.freeCard .courseReview .review p {
+    padding-left: 10px;
+    font-size: 13px;
+    color: grey;
+}
+
 .freeStripe {
-    background: #F14444;
+    background: #0eb80e;
     color: #fff;
     font-family: "Montserrat", sans-serif;
     font-size: 12px;
@@ -631,6 +657,10 @@ input.searchBar {
 
 .tredingSliderSection .card:hover{
     transform: scale(1.2);    
+}
+
+.courseBtn button{
+    width: 100%;
 }
 
 
@@ -1615,3 +1645,148 @@ input.searchBar {
 }
 
 
+/* OnlineCourse CSS */
+
+.breadcrumb_container1{
+    padding: 20px 2% 20px 10%;
+}
+
+.onlineCourseTitle .title{
+    margin: 40px 0px 20px 0px;
+    font-weight: 800;
+    font-size: 28px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.onlineCourseTitle .onlineCourseDetail{
+    margin: 20px 0px 20px 0px;
+    font-weight: 400;
+    font-size: 18px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.onlineCourse{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.onlineCourse .card{
+    width: 278px;
+}
+
+
+.course_card{
+    width: 90%;
+    margin: 0 15px;
+    transition: .5s ease-in-out;
+}
+
+.course_card:hover {
+    transform: scale(1.1);
+}
+
+.course_card .slideTitle{
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.courserate{
+    display: flex;
+}
+
+.course_card .rating {
+    background-color: #0eb80e;
+    color: white;
+    align-items: center;
+    display: flex;
+    font-size: 13px;
+    padding: 0px 4px;
+    border-radius: 5px;
+}
+
+.course_card .rating svg{
+    font-size: 10px;
+}
+
+.courseReview .review p {
+    padding-left: 10px;
+    font-size: 13px;
+    color: grey;
+}
+
+.courseDur {
+    display: flex;
+    font-size: 14px;
+    align-items: center;
+    color: grey;
+    /* padding-bottom: 10px; */
+}
+
+.courseDur svg {
+    font-size: 16px;
+}
+
+hr{
+    margin: 10px 0px;
+}
+
+.costPrice{
+    font-size: 24px !important;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 700 !important;
+    padding-top: 10px;
+}
+
+.rupeeSign{
+    font-size: 23px !important;
+    padding-bottom: 2px !important;
+}
+
+.offPriceContainer{
+    margin-left: 10px;
+    position: relative;
+    color: grey;
+}
+
+.offPrice{
+    border: 1px solid grey;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+}
+
+.rupeeSign2{
+    font-weight: 300 !important;
+}
+
+.offPricePercentage{
+    margin-left: 10px;
+    color: #0eb80e;
+    font-size: 15px;
+}
+
+.onlineCourseButtons button{
+    width: 90%;
+}
+
+
+@media (min-width: 320px) and (max-width: 576px) {
+
+    .breadcrumb_container1{
+        width: 100%;
+    }
+
+    .onlineCourseTitle .title{
+        margin: 40px 0px 20px 0px;
+        font-weight: 600;
+        font-size: 20px;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .onlineCourseTitle .onlineCourseDetail{
+        margin: 20px 5px 20px 0px;
+        font-weight: 400;
+        font-size: 14px;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+    }
+}

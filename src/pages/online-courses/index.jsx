@@ -2,13 +2,11 @@ import React, { useState, useEffect, useRef } from "react";
 import Header from "../../component/header/header";
 import Footer from "../../component/footer/footer";
 import { useRouter } from "next/router";
-import { LiaYoutube } from "react-icons/lia";
-import { IoDocumentTextOutline } from "react-icons/io5";
-import Tab from "react-bootstrap/Tab";
-import Tabs from "react-bootstrap/Tabs";
-
 
 import { freeCourseAry } from "../../../public/assets/sampleArry";
+import Card1 from "@/component/cards/card1";
+
+const OC_image = '/assets/images/OC_title1.png';
 
 
 const tiles = ["Course Detail", "Course Curriculum", "PDF's", "Group Chat"];
@@ -41,7 +39,7 @@ const OnlineCourse = () => {
       <Header />
       <div className="container-fluid p-0" style={{overflow: 'hidden'}}>
         <div className="course_titleContainer row">
-          <div className="col-6 container breadcrumb_container">
+          <div className="col-7 container breadcrumb_container1">
             <nav aria-label="breadcrumb ">
               <ol className="breadcrumb mb-2 cursor">
                 <li className="breadcrumb-item" onClick={() => Router.push("/")}>
@@ -56,19 +54,27 @@ const OnlineCourse = () => {
                 {/* {courseDetails && <li className="breadcrumb-item highlight">{courseDetails.course_detail.title}</li>} */}
               </ol>
             </nav>
-            <div className="courseTitle">
-              <p>{freeCourseAry[0].title}</p>
+            <div className="onlineCourseTitle">
+              <p className="title">Online Courses</p>
+              <p className="onlineCourseDetail">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, neque nihil! Animi nam cum natus neque cumque consequatur iusto quidem dolorem ex facere debitis odio repudiandae asperiores reprehenderit quia qui, officiis expedita repellat est.</p>
             </div>
           </div>
-          <div className="col-6 course_imageContainer">
+          <div className="col-5 course_imageContainer">
             <div className="imgContainer">
-              <img src={freeCourseAry[0].image} alt="" />
+              <img src={OC_image} alt="" />
             </div>
           </div>
         </div>
         <div className="course_mainContainer tabs_design__">
           <nav className="m-0 p-0">
-            
+            <div className="container onlineCourse">
+              <Card1 />
+              <Card1 />
+              <Card1 />
+              <Card1 />
+              <Card1 />
+              <Card1 />
+            </div>
           </nav>
         </div>
       </div>

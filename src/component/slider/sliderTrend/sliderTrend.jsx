@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { FaLocationArrow } from "react-icons/fa";
 import { useRouter } from 'next/navigation'
-// import Skeleton from 'react-loading-skeleton'
-// import 'react-loading-skeleton/dist/skeleton.css'
+import Button2 from '@/component/buttons/button2/button2';
 
-const SliderTrend = (props) => {
+
+const SliderTrend = ({value}) => {
   const [showBtn, setShowBtn] = useState(false);
   const [isClient, setIsClient] = useState(false);
   const router = useRouter()
+  // console.log('props', props.value.cover_image)
 
   useEffect(() => {
     setIsClient(true);
@@ -25,16 +26,17 @@ const SliderTrend = (props) => {
         <div className="m-0 trendStripe">Best Seller</div>
         {isClient && showBtn && (
           <div className='explorebtn'>
-            <FaLocationArrow 
+            {/* <FaLocationArrow 
             // onClick={() => navigate(`/explore-course/427`)} 
             onClick={() => router.push('/explore-course/427', { scroll: false })}
-            />
+            /> */}
+            <Button2 value={"Buy"} />
           </div>
         )}
-        {props.value && (
+        {value.cover_image && (
           <img 
             style={{borderRadius: "10px"}} 
-            src={props.value} 
+            src={value.cover_image} 
             className="card-img-top" 
             alt="..." 
           />

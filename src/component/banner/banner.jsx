@@ -2,17 +2,20 @@ import React, { useState, useCallback, lazy, Suspense } from 'react';
 import Carousel from "react-bootstrap/Carousel"
 import { bannerAry } from '../../../public/assets/sampleArry';
 import CarouselItem from './carouselItem';
-// import  './carouselItem.module.css'
-// import "@/styles/globals.css";
+import { isValidData } from '@/utils/helpers';
+import { useSelector } from 'react-redux';
 
-
-const Banner = ({value}) => {
+const Banner = () => {
     const [index, setIndex] = useState(0);
-    // console.log(bannerAry)
+    const bannerData = useSelector((state) => state.allCategory.allCategory.banner_list)
+    // console.log('bannerData123', bannerData)
 
+    // console.log("BannerData 9",typeof BannerData)
+    const status = isValidData(bannerData)
     const handleSelect = useCallback((selectedIndex) => {
         setIndex(selectedIndex);
     }, []);
+
 
     return (
         <div className='container'>
@@ -24,9 +27,10 @@ const Banner = ({value}) => {
                         onSelect={handleSelect}
                         className="owl-theme owl_custom owl-loaded owl-drag result p-0"
                         data-bs-touch="false"
-                    >
-                        {value &&
-                            value.map((item, index) => (
+                    >   
+                    {/* {console.log("BannerData",bannerData)} */}
+                        {status && 
+                            bannerData?.map((item, index) => (
                                 <Carousel.Item key={index}>
                                     <CarouselItem value = {item.banner_url} />
                                 </Carousel.Item>

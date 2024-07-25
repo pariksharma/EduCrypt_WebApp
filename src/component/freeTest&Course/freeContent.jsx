@@ -45,7 +45,7 @@ const FreeContent = (props) => {
       {isLoading ? (
         <Slider {...settings}>
           {data.map((item, index) => (
-            <SliderContent value={item} key={index} />
+            <SliderContent freeCourse={item} key={index} />
           ))}
         </Slider>
       ) : (
