@@ -7,7 +7,7 @@ export const appDetailSlice = createSlice({
     },
     reducers: {
         app_detailAction: (state, action) => {
-            localStorage.setItem('appId', action?.payload?.id);
+            // localStorage.setItem('appId', action?.payload?.id);
             // console.log('payload', action.payload)
             state.app_detail = action?.payload
         }

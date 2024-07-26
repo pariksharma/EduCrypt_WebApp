@@ -4,22 +4,25 @@ import Button2 from '../buttons/button2/button2';
 import { IoStar } from "react-icons/io5";
 import { MdOutlineCalendarMonth } from "react-icons/md";
 import { FaRupeeSign } from "react-icons/fa";
+import { useRouter } from 'next/router';
 
 const content_image = '/assets/images/slideImg.png';
 const content_title = "Selection Hi Jawab Hai Something Special For VCAINS"
 
-const Card1 = () => {
+const Card1 = ({value}) => {
+
+    const Router = useRouter()
 
     const handleExplore = () => {
-        console.log("buy now")
+        Router.push(`/online-courses/details/${value.id}`);
     }
   return (
         <div className="card border-0 shadow b-radius mb-3 p-2 course_card">
-            {content_image && <img style={{borderRadius: "10px"}} src={content_image} className="card-img-top" alt="..." />}
+            {value.cover_image && <img style={{borderRadius: "10px"}} src={value.cover_image} className="card-img-top" alt="..." />}
             {/* <div className="m-0 free-badge">FREE</div> */}
             <div className="card-body pt-3 px-0 pb-0">
                 <h6 className="mb-2 slideTitle">
-                    {content_title}
+                    {value.title}
                 </h6>
                 <div className="courserate">
                     <div className="courseRating">
@@ -31,23 +34,27 @@ const Card1 = () => {
                 </div>
                 <div className="courseDur">
                     <div className="courseValidity">
-                        <span className='validity'><MdOutlineCalendarMonth /> Validity: {'180 Days'}</span>
+                        <span className='validity'><MdOutlineCalendarMonth /> Validity: {`${value.validity}`}</span>
                     </div>
                 </div>
                 <hr />
                 <div className="coursePriceContainer">
                     <div className="coursePrice d-flex align-items-center pb-2 m-0">
                         <div className='Price'>
-                            <FaRupeeSign className='rupeeSign' /><span className='costPrice'>{999}</span>
+                            <FaRupeeSign className='rupeeSign' /><span className='costPrice'>{value.course_sp}</span>
                         </div>
-                        <div className='offPriceContainer'>
-                            <div className='offPrice'>
+                        {value.course_sp !== value.mrp &&
+                            <>
+                            <div className='offPriceContainer'>
+                                <div className='offPrice'>
+                                </div>
+                                <FaRupeeSign className='rupeeSign2' />{value.mrp}
                             </div>
-                            <FaRupeeSign className='rupeeSign2' />{1500}
-                        </div>
-                        <div className='offPricePercentage'>
-                            {`(15% Off)`}
-                        </div>
+                            <div className='offPricePercentage'>
+                                {`(${value.discount}% Off)`}
+                            </div>
+                            </>
+                        }
                     </div>
                 </div>
                 <div className="d-flex justify-content-between onlineCourseButtons">

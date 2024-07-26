@@ -8,44 +8,40 @@ import { decrypt, encrypt, get_token } from "@/utils/helpers";
 import { bannerAry } from "../../public/assets/sampleArry";
 import { useDispatch } from "react-redux";
 import { app_detailAction } from "@/store/sliceContainer/appDetailSlice";
+import { setAppId } from "@/services/axios";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const [tenantName, setTenantName] = useState(null);
+  const dispatch = useDispatch();
 
-  const [tenantName, setTenantName] = useState(null)
-  const dispatch = useDispatch()
+  useEffect(() => {
+    const url = window.location.href;
+    console.log(url);
+    const tenantName = url.split(".local")[0];
+  }, []);
 
-    useEffect(() => {
-      const url = window.location.href;
-      console.log(url)
-      const tenantName = url.split(".local")[0]
-      fetchAppDetail(tenantName+'/');
-    }, [])
+  const fetchAppDetail = async (tenantName) => {
+    const token = get_token();
+    const formData = {
+      // 'domain': tenantName
+      domain: "https://narayna.videocrypt.in/webstaging/",
+    };
+    const response_content_service = await getAppDetial(
+      encrypt(JSON.stringify(formData), token)
+    );
+    const app_detail_data = decrypt(response_content_service.data, token);
 
-    const fetchAppDetail = async (tenantName) =>{ 
-      const token = get_token()
-      const formData = {
-        // 'domain': tenantName
-        'domain' : 'https://narayna.videocrypt.in/webstaging/'
-      }
-      const response_content_service = await getAppDetial(encrypt(JSON.stringify(formData),token))
-      const app_detail_data = decrypt(response_content_service.data, token);
-
-
-      // const formData1 = {
-      //   'domain' : "https://narayna.videocrypt.in/webstaging/"
-      // }
-
-      // const result = await getAppDetial(encrypt(JSON.stringify(formData1),token))
-      // console.log('result', app_detail_data)
-
-      if(app_detail_data.status){
-        const data = app_detail_data.data
-        // console.log('data', data)
-        dispatch(app_detailAction(data));
-      }
+    if (app_detail_data.status) {
+      const data = app_detail_data.data;
+      setAppId(data.id)
+      localStorage.setItem('appId', data.id);
+      dispatch(app_detailAction(data));
     }
+  };
+
+  fetchAppDetail();
 
   return (
     <>
@@ -78,7 +74,6 @@ export default function Home() {
           crossorigin
         ></script>
 
-
         {/* <!-- Google Font --> */}
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" />
 
@@ -88,11 +83,12 @@ export default function Home() {
           href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
           rel="stylesheet"
         />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet" />
-
-
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+          rel="stylesheet"
+        />
 
         {/* <!-- Font Awesome CDN --> */}
         <link
@@ -111,7 +107,7 @@ export default function Home() {
         />
       </Head>
       {/* <BrowserRouter> */}
-        <RoutePage tenantName={tenantName} />
+      <RoutePage tenantName={tenantName} />
       {/* </BrowserRouter> */}
     </>
   );

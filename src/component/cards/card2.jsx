@@ -1,10 +1,9 @@
 import React from 'react'
-import Button1 from '../../buttons/button1/button1'
 import { useRouter } from 'next/router'
 import { IoStar } from "react-icons/io5";
-import { MdOutlineCalendarMonth } from "react-icons/md";
+import Button1 from '../buttons/button1/button1'
 
-const SliderContent = ({freeCourse}) => {
+const Card2 = ({freeCourse}) => {
 
     const router = useRouter()
 
@@ -14,18 +13,14 @@ const SliderContent = ({freeCourse}) => {
         // navigate('/viewDetail/422')
         // location.reload()
     }
-    // const content_image = props.value.image;
-    // const content_title = props.value.title;
 
-    
-    if(freeCourse) {
-        return (
-        <div className="card border-0 shadow b-radius mb-3 p-2 freeCard">
-            {freeCourse.cover_image && <img style={{borderRadius: "10px"}} src={freeCourse.cover_image} className="card-img-top" alt="..." />}
+  return (
+    <div className="card border-0 shadow b-radius mb-3 p-2 freeCard">
+            {freeCourse?.desc_header_image && <img style={{borderRadius: "10px"}} src={freeCourse.desc_header_image} className="card-img-top" alt="..." />}
             {/* <div className="m-0 free-badge">FREE</div> */}
             <div className="card-body pt-3 px-0 pb-0">
                 <h6 className="mb-2 slideTitle">
-                    {freeCourse.title}
+                    {freeCourse?.title}
                 </h6>
                 {/* <div className="m-0 clearfix">
                     <div className="countTitle"><i className="fab fa-youtube"></i> 120 videos</div>
@@ -37,26 +32,20 @@ const SliderContent = ({freeCourse}) => {
                             <span className="rating"><IoStar /> {4.1}</span>
                         </div>
                         <div className="courseReview">
-                            <span className="review"><p>{166} reviews</p></span>
+                            <span className="review"><p>{165} reviews</p></span>
                         </div>
                     </div>
-                    <div className="freeStripe">
-                        Free
-                    </div>
+                    <div className="freeStripe m-0">
+                    Free
                 </div>
-                <hr />
+                </div>
                 {/* <button className="btn exploreBtn">Explore now</button> */}
                 <div className="courseBtn">
                     <Button1 value = "Explore" handleClick = {handleExplore} />
                 </div>
-                
             </div>
         </div>
-        )
-    }
-    else {
-        null
-    }
+  )
 }
 
-export default SliderContent
+export default Card2

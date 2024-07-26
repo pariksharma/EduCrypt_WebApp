@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { prod_Ary } from "../../../public/assets/sampleArry";
+// import { prod_Ary } from "../../../public/assets/sampleArry";
 import SliderProduct from "../slider/sliderProduct/sliderProduct";
 import Slider from "react-slick";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { ProdscreenWidth } from "../../utils/helpers";
+import { useSelector } from "react-redux";
+import { isValidData } from "../../utils/helpers";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const OurProduct = ({ value, data }) => {
   const [showSlide, setShowSlide] = useState(5);
   const [isLoading, setIsLoading] = useState(false);
+  const prod_Ary = useSelector((state) => state.allCategory.allCategory.course_type_master)
+  const status = isValidData(prod_Ary)
+  // console.log('OurProduct', OurProduct)
+
 
   useEffect(() => {
     const changeWidth = () => {
@@ -47,7 +53,7 @@ const OurProduct = ({ value, data }) => {
           <h1>Our Products</h1>
         </div>
         <div className="row align-items-center text-white prod_slider">
-          {isLoading ? (
+          {status ? (
             <Slider {...settings}>
               {prod_Ary &&
                 prod_Ary.map((item, index) => (
@@ -65,7 +71,7 @@ const OurProduct = ({ value, data }) => {
       <Slider {...settings}>
         {data &&
           data.map((item, index) => (
-            <div className="mb-3 ourfacultySection">
+            <div className="mb-3 ourfacultySection" key={index}>
               <div className="card">
                 <div>
                   {item.image && (

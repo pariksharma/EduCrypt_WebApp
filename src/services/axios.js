@@ -1,8 +1,15 @@
 import axios from "axios";
 
+let appIdStore = null;
+
 const axiosClient = axios.create({
     baseURL: process.env.NEXT_PUBLIC_API_URL,
   })
+
+export const setAppId = (appId) => {
+    appIdStore = appId;
+    console.log('appIdStore', appIdStore)
+};
 
 axiosClient.interceptors.request.use((req) => {
     const jwt = localStorage.getItem('jwt')
@@ -29,7 +36,7 @@ axiosClient.interceptors.request.use((req) => {
             // 'Centerid:'.$Centerid,
             'Content-Type': 'application/json',
             "Authorization": "Bearer 01*#NerglnwwebOI)30@I*Dm'@@",
-            "Appid": app_id ? app_id : 427 
+            "Appid": appIdStore ? appIdStore : 427 
     }
 
     req.headers = headers

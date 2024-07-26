@@ -14,14 +14,15 @@ import { decrypt, get_token, encrypt } from '@/utils/helpers'
 import { all_CategoryAction, all_CourseAction } from '@/store/sliceContainer/masterContentSlice'
 
 const index = () => {
-
   const dispatch = useDispatch();
   // const get_appData = useSelector((state) => state.appDetail.app_detail)
   // console.log('appDetail1', get_appData)
 
   useEffect(() => {
-    fetchContentData();
-    fetchCourseData();
+    setTimeout(() => {
+      fetchContentData();
+      fetchCourseData();
+    }, 500);
   }, [])
 
   const token = get_token()
@@ -46,7 +47,7 @@ const index = () => {
     const response_getCourse_data = decrypt(response_getCourse_service.data, token)
     if(response_getCourse_data.status){
       dispatch(all_CourseAction(response_getCourse_data.data))
-      // console.log('course', response_getCourse_data)
+      console.log('course', response_getCourse_data)
     }
   }
   
