@@ -44,10 +44,10 @@ const ViewDetail = () => {
     };
     const response_getCourseDetail_service = await getCourseDetail_Service(encrypt(JSON.stringify(formData), token));
     const response_getCourseDetail_data = decrypt(response_getCourseDetail_service.data, token);
-    // console.log('get_courseDetail', response_getCourseDetail_data);
+    console.log('get_courseDetail', response_getCourseDetail_data);
     if (response_getCourseDetail_data.status) {
       setFreeCourseAry(response_getCourseDetail_data.data);
-      // console.log('detail', response_getCourseDetail_data.data);
+      console.log('detail', response_getCourseDetail_data.data);
     }
   };
 
@@ -70,7 +70,7 @@ const ViewDetail = () => {
             <nav aria-label="breadcrumb ">
               <ol className="breadcrumb mb-2 cursor">
                 <li className="breadcrumb-item"
-                  onClick={() => router.push("/")}
+                  onClick={() => router.back()}
                 >
                   Home
                 </li>

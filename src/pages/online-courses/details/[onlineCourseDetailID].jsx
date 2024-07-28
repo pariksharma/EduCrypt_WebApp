@@ -19,7 +19,7 @@ import { encrypt, decrypt } from "@/utils/helpers";
 
 const tiles = ["Course Detail", "Course Curriculum", "PDF's", "Group Chat"];
 
-const ViewOnlineCourseDetail = ({onlineCourseID}) => {
+const ViewOnlineCourseDetail = () => {
   const [key, setKey] = useState("Course Detail");
   const [freeCourseAry, setFreeCourseAry] = useState('');
 
@@ -27,10 +27,8 @@ const ViewOnlineCourseDetail = ({onlineCourseID}) => {
   const resetCourseCurriculumLayerRef = useRef();
   const router = useRouter();
   const { onlineCourseDetailID } = router.query;
-
-  console.log('onlineCourseID', onlineCourseID)
   
-
+  
   useEffect(() => {
     if (onlineCourseDetailID) {
       window.scrollTo(0, 0);
@@ -77,7 +75,7 @@ const ViewOnlineCourseDetail = ({onlineCourseID}) => {
                   Home
                 </li>
                 <li className="breadcrumb-item"
-                  onClick={() => router.push(`/online-course/${onlineCourseID}`)}
+                  onClick={() => router.back()}
                 >
                   Online Courses
                 </li>

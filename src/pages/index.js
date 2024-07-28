@@ -8,7 +8,7 @@ import { decrypt, encrypt, get_token } from "@/utils/helpers";
 import { bannerAry } from "../../public/assets/sampleArry";
 import { useDispatch } from "react-redux";
 import { app_detailAction } from "@/store/sliceContainer/appDetailSlice";
-import { setAppId } from "@/services/axios";
+// import { setAppId } from "@/services/axios";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -35,7 +35,7 @@ export default function Home() {
 
     if (app_detail_data.status) {
       const data = app_detail_data.data;
-      setAppId(data.id)
+      // setAppId(data.id)
       localStorage.setItem('appId', data.id);
       dispatch(app_detailAction(data));
     }

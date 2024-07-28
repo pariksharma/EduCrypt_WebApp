@@ -15,8 +15,7 @@ import { all_CategoryAction, all_CourseAction } from '@/store/sliceContainer/mas
 
 const index = () => {
   const dispatch = useDispatch();
-  // const get_appData = useSelector((state) => state.appDetail.app_detail)
-  // console.log('appDetail1', get_appData)
+
 
   useEffect(() => {
     setTimeout(() => {
@@ -24,6 +23,7 @@ const index = () => {
       fetchCourseData();
     }, 500);
   }, [])
+  
 
   const token = get_token()
   const fetchContentData = async () => {

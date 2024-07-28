@@ -9,7 +9,8 @@ const SliderContent = ({freeCourse}) => {
     const router = useRouter()
 
     const handleExplore = () => {
-        console.log("Clicked ==========")
+        console.log("Clicked ==========");
+        // localStorage.setItem('freeCourseId', freeCourse.id)
         router.push(`/view-detail/${freeCourse.id}`);
         // navigate('/viewDetail/422')
         // location.reload()

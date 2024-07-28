@@ -6,26 +6,16 @@ const axiosClient = axios.create({
     baseURL: process.env.NEXT_PUBLIC_API_URL,
   })
 
-export const setAppId = (appId) => {
-    appIdStore = appId;
-    console.log('appIdStore', appIdStore)
-};
+// export const setAppId = (appId) => {
+//     appIdStore = appId;
+//     console.log('appIdStore', appIdStore)
+// };
 
 axiosClient.interceptors.request.use((req) => {
     const jwt = localStorage.getItem('jwt')
     const user_id = localStorage.getItem('user_id')
     const app_id = localStorage.getItem('appId')
 
-
-    // const headers = {
-    //     'Content-Type':'application/json',
-    //     'Devicetype':4,
-    //     'Version':1,
-    //     'lang':1,
-    //     // 'Appid':{{APP_ID}}
-    //     //Userid:{{USER_ID}}
-    //     // Dump:'dump07072323'
-    // }
 
     const headers = {
             'Jwt': jwt ? jwt : "jwt",
@@ -36,7 +26,7 @@ axiosClient.interceptors.request.use((req) => {
             // 'Centerid:'.$Centerid,
             'Content-Type': 'application/json',
             "Authorization": "Bearer 01*#NerglnwwebOI)30@I*Dm'@@",
-            "Appid": appIdStore ? appIdStore : 427 
+            "Appid": app_id ? app_id : 427 
     }
 
     req.headers = headers

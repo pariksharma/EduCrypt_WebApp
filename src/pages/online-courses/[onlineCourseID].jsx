@@ -17,7 +17,6 @@ const OnlineCourse = () => {
   const resetCourseCurriculumLayerRef = useRef();
   const Router = useRouter();
   const { onlineCourseID } = Router.query;
-  localStorage.setItem('onlineCourseID', onlineCourseID)
 
   useEffect(() => {
     if (onlineCourseID) {
@@ -46,11 +45,6 @@ const OnlineCourse = () => {
     }
   };
 
-  const handleRoute = () => {
-    Router.push("/");
-    localStorage.removeItem('onlineCourseID')
-  }
-
 
   return (
     <>
@@ -62,7 +56,7 @@ const OnlineCourse = () => {
               <ol className="breadcrumb mb-2 cursor">
                 <li
                   className="breadcrumb-item"
-                  onClick={() => handleRoute()}
+                  onClick={() => Router.back()}
                 >
                   Home
                 </li>
