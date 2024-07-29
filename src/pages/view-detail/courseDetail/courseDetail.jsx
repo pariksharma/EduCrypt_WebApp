@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import FreeContent from "../../../component/freeTest&Course/freeContent";
 import OurProduct from "../../../component/ourProducts/ourProduct";
 import { faculties_Ary, freeTestAry } from "../../../../public/assets/sampleArry";
+import { isValidData } from "@/utils/helpers";
 
-const CourseDetail = ({ value, title }) => {
+const CourseDetail = ({ value, propsValue, title }) => {
   const [active, setActive] = useState(1);
+
+  console.log('propsValue', propsValue)
+  const description = value;
 
   return (
     <div className="container p-4">
@@ -17,7 +21,7 @@ const CourseDetail = ({ value, title }) => {
                 </div>
                 <div className="smallline mx-auto mb-3"></div>
                 </div>
-                <div className="mt-4 detailCourse">{value}</div>
+                <div className="mt-4 detailCourse">{description}</div>
             </div>
         </div>
       </section>
@@ -242,19 +246,21 @@ const CourseDetail = ({ value, title }) => {
         </div>
       </section>
       <section className="py-4 page-section-6">
-        <div className="container">
-            <div className="row">
-                <div>
-                <div className="page-sect-2-title">
-                    <h1 className="head">Similar Courses</h1>
-                </div>
-                <div className="smallline mx-auto mb-3"></div>
-                </div>
-                <div className="mt-4">
-                    <FreeContent value={freeTestAry} />
-                </div>
-            </div>
-        </div>
+        {isValidData(propsValue) && 
+          <div className="container">
+              <div className="row">
+                  <div>
+                  <div className="page-sect-2-title">
+                      <h1 className="head">Similar Courses</h1>
+                  </div>
+                  <div className="smallline mx-auto mb-3"></div>
+                  </div>
+                  <div className="mt-4">
+                      <FreeContent value={propsValue} title="Related Course" />
+                  </div>
+              </div>
+          </div>
+        }
       </section>
       <section className="py-4 page-section-6">
         <div className="container">

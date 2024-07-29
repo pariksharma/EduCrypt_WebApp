@@ -4,13 +4,13 @@ import { useRouter } from 'next/router'
 import { IoStar } from "react-icons/io5";
 import { MdOutlineCalendarMonth } from "react-icons/md";
 
-const SliderContent = ({freeCourse}) => {
+const SliderContent = ({freeCourse, title}) => {
 
     const router = useRouter()
+    // console.log('freeCourse', freeCourse)
 
     const handleExplore = () => {
         console.log("Clicked ==========");
-        // localStorage.setItem('freeCourseId', freeCourse.id)
         router.push(`/view-detail/${freeCourse.id}`);
         // navigate('/viewDetail/422')
         // location.reload()
@@ -22,7 +22,8 @@ const SliderContent = ({freeCourse}) => {
     if(freeCourse) {
         return (
         <div className="card border-0 shadow b-radius mb-3 p-2 freeCard">
-            {freeCourse.cover_image && <img style={{borderRadius: "10px"}} src={freeCourse.cover_image} className="card-img-top" alt="..." />}
+             {<img style={{borderRadius: "10px"}} src={title === "Related Course" ? freeCourse.desc_header_image : freeCourse.cover_image ? freeCourse.cover_image : 'https://picsum.photos/536/354'} className="card-img-top" alt="..." />}
+
             {/* <div className="m-0 free-badge">FREE</div> */}
             <div className="card-body pt-3 px-0 pb-0">
                 <h6 className="mb-2 slideTitle">

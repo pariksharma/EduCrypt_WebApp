@@ -4,15 +4,21 @@ import Slider from "react-slick";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { testimonial_Ary } from '../../../public/assets/sampleArry';
 import SliderTestimonial from '../slider/sliderTestimonial/sliderTestimonial';
-import { TestScreenWidth } from '../../utils/helpers';
+import { get_token, TestScreenWidth } from '../../utils/helpers';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { encrypt, decrypt } from '../../utils/helpers';
+import { getTestimonialService } from '@/services';
 
 const Testimonial = () => {
     const [showSlide, setShowSlide] = useState(3);
     const [isLoading, setIsLoading] = useState(false);
+    const [testimonial_Ary1, settestimonial_Ary1] = useState('')
 
     useEffect(() => {
+        setTimeout(() => {
+            fetchTestimonialData() 
+        }, 1000);
         const changeWidth = () => {
             setShowSlide(TestScreenWidth());
         };
@@ -41,6 +47,17 @@ const Testimonial = () => {
         prevArrow: <IoIosArrowBack />,
     };
 
+    const fetchTestimonialData = async () => {
+        const token = get_token();
+        const formData = new FormData();
+        const response_testimonial_service = await getTestimonialService(formData);
+        const testimonial_service_Data = decrypt(response_testimonial_service.data, token)
+        if(testimonial_service_Data.status){
+            console.log('testimonal response', testimonial_service_Data.data.testimonial)
+            settestimonial_Ary1(testimonial_service_Data.data.testimonial)
+        }
+    }
+
     return (
         <div className='container mb-3 test_container'>
             <div className='testimonial_heading'>
@@ -50,7 +67,7 @@ const Testimonial = () => {
             <div className='container-fluid'>
                 {isLoading ? (
                     <Slider {...settings}>
-                        {testimonial_Ary && testimonial_Ary.map((item, index) => {
+                        {testimonial_Ary1 && testimonial_Ary1.map((item, index) => {
                             return <SliderTestimonial value={item} key={index} />
                         })}
                     </Slider>

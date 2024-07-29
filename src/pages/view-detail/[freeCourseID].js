@@ -22,6 +22,9 @@ const tiles = ["Course Detail", "Course Curriculum", "PDF's", "Group Chat"];
 const ViewDetail = () => {
   const [key, setKey] = useState("Course Detail");
   const [freeCourseAry, setFreeCourseAry] = useState('');
+  const [relateCourseAry, setRelateCourseAry] = useState('');
+  const [pdfData, setPdfData] = useState('')
+  const [videoData, setVideData] = useState('')
 
   const resetPdfLayerRef = useRef();
   const resetCourseCurriculumLayerRef = useRef();
@@ -44,10 +47,11 @@ const ViewDetail = () => {
     };
     const response_getCourseDetail_service = await getCourseDetail_Service(encrypt(JSON.stringify(formData), token));
     const response_getCourseDetail_data = decrypt(response_getCourseDetail_service.data, token);
-    console.log('get_courseDetail', response_getCourseDetail_data);
+    console.log('response_getCourseDetail_data', response_getCourseDetail_data.data)
     if (response_getCourseDetail_data.status) {
       setFreeCourseAry(response_getCourseDetail_data.data);
-      console.log('detail', response_getCourseDetail_data.data);
+      setRelateCourseAry(response_getCourseDetail_data?.data.tiles[0]?.meta.related_courses?.filter((item) => item.mrp == 0))
+      setPdfData(response_getCourseDetail_data?.data?.course_detail?.course_syallbus_pdf)
     }
   };
 
@@ -70,7 +74,7 @@ const ViewDetail = () => {
             <nav aria-label="breadcrumb ">
               <ol className="breadcrumb mb-2 cursor">
                 <li className="breadcrumb-item"
-                  onClick={() => router.back()}
+                  onClick={() => router.push('/')}
                 >
                   Home
                 </li>
@@ -98,7 +102,7 @@ const ViewDetail = () => {
                 120 PDF's
               </p>
             </div>
-            <div className="freeCourserate">
+            <div className="d-flex mb-2 freeCourserate">
               <div className="freeCourseRating">
                 <span className="freeRating"><IoStar /> {4.1}</span>
               </div>
@@ -125,10 +129,10 @@ const ViewDetail = () => {
               className="mb-3 "
             >
               {tiles.map((item) => (
-                <Tab eventKey={item} title={item} key={item}>
-                  {item === "Course Detail" && <CourseDetail value={course_detail} title={item} />}
-                  {item === "Course Curriculum" && <CourseCurriculum resetRef={resetCourseCurriculumLayerRef} tabName={item} />}
-                  {item === "PDF's" && <PDF_Detail resetRef={resetPdfLayerRef} tabName={item} />}
+                <Tab eventKey={item} title={item} key={item} propsValue={freeCourseAry.tiles}>
+                  {item === "Course Detail" && <CourseDetail  title={item} value = {course_detail} propsValue={isValidData(relateCourseAry) && relateCourseAry} />}
+                  {item === "Course Curriculum" && <CourseCurriculum resetRef={resetCourseCurriculumLayerRef} tabName={item} propsValue = {isValidData(videoData) && videoData} />}
+                  {item === "PDF's" && <PDF_Detail resetRef={resetPdfLayerRef} tabName={item} propsValue={isValidData(pdfData) && pdfData} />}
                 </Tab>
               ))}
             </Tabs>

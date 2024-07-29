@@ -9,16 +9,16 @@ import { useRouter } from 'next/router';
 const content_image = '/assets/images/slideImg.png';
 const content_title = "Selection Hi Jawab Hai Something Special For VCAINS"
 
-const Card1 = ({value}) => {
+const Card3 = ({value}) => {
 
     const Router = useRouter()
 
     const handleExplore = () => {
-        Router.push(`/online-courses/details/${value.id}`);
+        // Router.push(`/online-courses/details/${value.id}`);
     }
   return (
-        <div className="card border-0 shadow b-radius mb-3 p-2 course_card m-4">
-            {value.cover_image && <img style={{borderRadius: "10px"}} src={value.cover_image} className="card-img-top" alt="..." />}
+        <div className="card border-0 shadow b-radius mb-3 p-2 course_card1 m-3">
+            {value.desc_header_image && <img style={{borderRadius: "10px"}} src={value.desc_header_image} className="card-img-top" alt="..." />}
             {/* <div className="m-0 free-badge">FREE</div> */}
             <div className="card-body pt-3 px-0 pb-0">
                 <h6 className="mb-2 slideTitle">
@@ -51,19 +51,19 @@ const Card1 = ({value}) => {
                                 <FaRupeeSign className='rupeeSign2' />{value.mrp}
                             </div>
                             <div className='offPricePercentage'>
-                                {`(${value.discount}% Off)`}
+                                {value.discount && `(${value.discount}% Off)`}
                             </div>
                             </>
                         }
                     </div>
                 </div>
-                <div className="d-flex justify-content-between onlineCourseButtons">
-                    <Button1 value = "Explore" handleClick = {handleExplore} />
-                    <Button2 value = "Buy Now" handleClick = {handleExplore} />
+                <div className="d-flex justify-content-between onlineCourseButtons1">
+                    <Button1 value = "Buy Now" handleClick = {handleExplore} />
+                    {/* <Button2 value = "Buy Now" handleClick = {handleExplore} /> */}
                 </div>
             </div>
         </div>
   )
 }
 
-export default Card1
+export default Card3

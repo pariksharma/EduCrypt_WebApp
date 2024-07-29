@@ -56,7 +56,7 @@ const OnlineCourse = () => {
               <ol className="breadcrumb mb-2 cursor">
                 <li
                   className="breadcrumb-item"
-                  onClick={() => Router.back()}
+                  onClick={() => Router.push('/')}
                 >
                   Home
                 </li>
@@ -88,7 +88,7 @@ const OnlineCourse = () => {
         </div>
         <div className="course_mainContainer tabs_design__">
           <nav className="m-0 p-0">
-            <div className="container onlineCourse">
+            <div className="container onlineCourse pb-3">
               {isValidData(onlineCourse) && 
                 onlineCourse.map((item, index) => {
                   return <Card1 value = {item} key={index} />

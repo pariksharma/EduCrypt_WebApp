@@ -578,6 +578,10 @@ input.searchBar {
     transition: .5s ease-in-out;
 }
 
+.freeCard img{
+    height: 150px;
+}
+
 .freeCard:hover {
     transform: scale(1.1);
 }
@@ -756,6 +760,11 @@ input.searchBar {
 
 .ourfacultySection:hover{
     transform: scale(1.1);
+}
+
+.ourProImg {
+    width: 100%;
+    height: 180px;
 }
 
 
@@ -1007,11 +1016,12 @@ input.searchBar {
     color: #FFC27A;
     font-size: 20px;
 }
-.p-text{
-    color: #363A3D;
+.p-text p{
+    margin: 10px;
+    color: #595f63;
     font-family: "Public Sans", sans-serif;
-    font-weight: 300;
-    font-size: 10px;
+    font-weight: 500;
+    font-size: 13px;
 }
 .testi-text{
     color: #8A8A8A;
@@ -1233,11 +1243,6 @@ input.searchBar {
     font-size: 16px;
     font-weight: 400;
     display: flex;
-}
-
-.freeCourserate{
-    display: flex;
-    margin-bottom: 20px;
 }
 
 .freeCourserate .freeRating {
@@ -1743,6 +1748,23 @@ input.searchBar {
     width: 278px;
 }
 
+.button1_share {
+    border-radius: 10px;
+    color: #FF7426;
+    border: 1px solid #FF7426;
+    background-color: transparent;
+    padding: 5px 12px;
+}
+
+.button1_buynow {
+    color: #fff;
+    background: #FF7426;
+    font-size: 17px;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 40px;
+}
+
 
 .course_card{
     width: 90%;
@@ -1859,3 +1881,45 @@ hr{
         font-family:Verdana, Geneva, Tahoma, sans-serif;
     }
 }
+
+
+/* Card3 CSS */
+
+.course_card1{
+    width: 80%;
+    margin: 0 15px;
+    transition: .5s ease-in-out;
+}
+
+.course_card1:hover {
+    transform: scale(1.1);
+}
+
+.course_card1 .slideTitle{
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.course_card1 .courserate{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.course_card1 .rating {
+    background-color: #0eb80e;
+    color: white;
+    align-items: center;
+    display: flex;
+    font-size: 13px;
+    padding: 0px 4px;
+    border-radius: 5px;
+}
+
+.course_card1 .rating svg{
+    font-size: 10px;
+}
+
+.onlineCourseButtons1 button{
+    width: 100%;
+}
+

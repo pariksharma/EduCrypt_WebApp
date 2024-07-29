@@ -7,7 +7,7 @@ import Button1 from "../../../component/buttons/button1/button1";
 import { FaPlayCircle } from "react-icons/fa";
 import VideoTab from "../videoTab/videoTab";
 
-const CourseCurriculum = ({ value, tabName, resetRef }) => {
+const CourseCurriculum = ({ propsValue, tabName, resetRef }) => {
   const [layer1Data, setLayer1Data] = useState();
   const [showLayer, setShowLayer] = useState("layer1");
   const [layer2List, setLayer2List] = useState();
@@ -19,11 +19,11 @@ const CourseCurriculum = ({ value, tabName, resetRef }) => {
   // const navigate = useNavigate();
 
   useEffect(() => {
-    if (value) {
-      setLayer1Data(value);
+    if (propsValue) {
+      setLayer1Data(propsValue);
       // setShowLayer()
     }
-  }, [value]);
+  }, [propsValue]);
 
   useEffect(() => {
     setShowLayer("layer1");
@@ -88,6 +88,8 @@ const CourseCurriculum = ({ value, tabName, resetRef }) => {
   const handleWatch = () => {
     console.log("watch Now");
   };
+
+  // console.log('val2222', value)
 
   return (
     <div className="container p-4 pt-0">
@@ -213,8 +215,8 @@ const CourseCurriculum = ({ value, tabName, resetRef }) => {
           showLayer == "layer1" &&
           //   layer1Data &&
           //   layer1Data?.meta?.list?.map((item, i) => {
-          subject_Ary &&
-          subject_Ary.map((item, i) => {
+          layer1Data &&
+          layer1Data.map((item, i) => {
             return (
               <VideoTab
                 item={item}

@@ -6,10 +6,10 @@ import { ScreenWidth } from "../../utils/helpers";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const FreeContent = (props) => {
+const FreeContent = ({value, title}) => {
   const [showSlide, setShowSlide] = useState(4);
   const [isLoading, setIsLoading] = useState(false);
-  const [data, setData] = useState(props.value);
+  const [data, setData] = useState(value);
 
   useEffect(() => {
     const changeWidth = () => {
@@ -45,7 +45,7 @@ const FreeContent = (props) => {
       {isLoading ? (
         <Slider {...settings}>
           {data.map((item, index) => (
-            <SliderContent freeCourse={item} key={index} />
+            <SliderContent freeCourse={item} title={title} key={index} />
           ))}
         </Slider>
       ) : (

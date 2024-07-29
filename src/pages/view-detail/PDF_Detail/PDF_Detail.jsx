@@ -9,7 +9,7 @@ import PDF_tab from "../PDF_tab/PDF_tab";
 const pdf_download1 = '/assets/images/download1.png'
 const pdf_download2 = '/assets/images/download2.png'
 
-const PDF_Detail = ({ value, tabName, resetRef }) => {
+const PDF_Detail = ({ propsValue, tabName, resetRef }) => {
   const [layer1Data, setLayer1Data] = useState();
   const [showLayer, setShowLayer] = useState("layer1");
   const [layer2List, setLayer2List] = useState();
@@ -21,11 +21,11 @@ const PDF_Detail = ({ value, tabName, resetRef }) => {
   // const navigate = useNavigate();
 
   useEffect(() => {
-    if (value) {
-      setLayer1Data(value);
+    if (propsValue) {
+      setLayer1Data(propsValue);
       // setShowLayer()
     }
-  }, [value]);
+  }, [propsValue]);
 
   useEffect(() => {
     setShowLayer("layer1");
@@ -202,8 +202,8 @@ const PDF_Detail = ({ value, tabName, resetRef }) => {
           showLayer == "layer1" &&
           //   layer1Data &&
           //   layer1Data?.meta?.list?.map((item, i) => {
-          subject_PDF_Ary &&
-          subject_PDF_Ary.map((item, i) => {
+            layer1Data &&
+          layer1Data.map((item, i) => {
             return (
               <PDF_tab
                 item={item}
