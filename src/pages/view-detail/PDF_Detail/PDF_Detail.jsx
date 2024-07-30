@@ -241,10 +241,10 @@ const PDF_Detail = ({ propsValue, tabName, resetRef }) => {
           })
         ) : (
           showLayer == "layer1" &&
-          //   layer1Data &&
-          //   layer1Data?.meta?.list?.map((item, i) => {
-          subject_PDF_Ary &&
-          subject_PDF_Ary.map((item, i) => {
+            layer1Data &&
+            layer1Data?.meta?.list?.map((item, i) => {
+          // layer1Data &&
+          // subject_PDF_Ary.map((item, i) => {
             return (
               <div
                 className=" pg-tabs-description mt-3"

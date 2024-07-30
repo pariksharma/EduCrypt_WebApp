@@ -8,6 +8,10 @@ nav #eduNav{
         
 }
 
+#eduNav {
+    box-shadow: 0px 1px 4px 0px #00000021;
+}
+
 .logoImg {
     width: 120px;
 }

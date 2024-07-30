@@ -7,10 +7,10 @@ import { useSelector } from 'react-redux';
 
 const Banner = () => {
     const [index, setIndex] = useState(0);
-    const bannerData = useSelector((state) => state.allCategory.allCategory.banner_list)
+    const bannerData = useSelector((state) => state.allCategory?.allCategory?.banner_list_web)
     // console.log('bannerData123', bannerData)
 
-    // console.log("BannerData 9",typeof BannerData)
+    console.log("BannerData 9",bannerData)
     const status = isValidData(bannerData)
     const handleSelect = useCallback((selectedIndex) => {
         setIndex(selectedIndex);
@@ -18,7 +18,7 @@ const Banner = () => {
 
 
     return (
-        <div className='container'>
+        <div className='container mt-4'>
             <div className="row align-items-center ">
                 <div className={`owl-carousel owl-theme owl_custom owl-loaded owl-drag `}>
                     <Carousel

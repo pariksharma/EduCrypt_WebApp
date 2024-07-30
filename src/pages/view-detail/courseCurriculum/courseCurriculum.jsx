@@ -250,8 +250,8 @@ const CourseCurriculum = ({ propsValue, tabName, resetRef }) => {
           showLayer == "layer1" &&
           //   layer1Data &&
           //   layer1Data?.meta?.list?.map((item, i) => {
-          subject_Ary &&
-          subject_Ary.map((item, i) => {
+          layer1Data &&
+          layer1Data.map((item, i) => {
             return (
               <div
                 className=" pg-tabs-description mt-3"
