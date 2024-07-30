@@ -24,7 +24,9 @@ const Free_Test_Course = () => {
             className="mb-3 d-flex justify-content-center"
           >
             <Tab eventKey="course" title="Free Courses">
-              {freeCourseAry && <FreeContent value={freeCourseAry} />}
+              {freeCourseAry ? <FreeContent value={freeCourseAry} /> 
+              : 
+              <div className="spinner-border d-flex justify-content-center" role="status" />}
             </Tab>
             <Tab eventKey="test" title="Free Test Series">
               {freeTestAry ? <FreeContent value={freeTestAry} /> 

@@ -26,12 +26,13 @@ export default function Home() {
     const token = get_token();
     const formData = {
       // 'domain': tenantName
-      domain: "https://narayna.videocrypt.in/webstaging/",
+      domain: "https://educrypt.netlify.app",
     };
     const response_content_service = await getAppDetial(
       encrypt(JSON.stringify(formData), token)
     );
     const app_detail_data = decrypt(response_content_service.data, token);
+    // console.log('app_detail_data', app_detail_data)
 
     if (app_detail_data.status) {
       const data = app_detail_data.data;
