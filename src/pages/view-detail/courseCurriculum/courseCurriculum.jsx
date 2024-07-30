@@ -5,7 +5,8 @@ import { topic_Ary } from "../../../../public/assets/sampleArry";
 import { video_Ary } from "../../../../public/assets/sampleArry";
 import Button1 from "../../../component/buttons/button1/button1";
 import { FaPlayCircle } from "react-icons/fa";
-import VideoTab from "../videoTab/videoTab";
+// import VideoTab from "../videoTab/videoTab";
+import { IoIosArrowForward } from "react-icons/io";
 
 const CourseCurriculum = ({ propsValue, tabName, resetRef }) => {
   const [layer1Data, setLayer1Data] = useState();
@@ -96,7 +97,7 @@ const CourseCurriculum = ({ propsValue, tabName, resetRef }) => {
       <section className="p-3 page-section-6">
         <div className=" custom-breadcrumb">
           <span
-             ref={resetRef}
+            ref={resetRef}
             className={showLayer == "layer1" ? "breadcrumb" : "breadcrumb"}
             onClick={() => {
               setShowLayer("layer1");
@@ -114,8 +115,8 @@ const CourseCurriculum = ({ propsValue, tabName, resetRef }) => {
               showLayer == "layer2" ? "active-breadcrumb" : "breadcrumb"
             }
             onClick={() => {
-                setShowLayer("layer2");
-              }}
+              setShowLayer("layer2");
+            }}
           >
             {/* {(layer2List != undefined && showLayer == "layer2") || */}
             {showLayer == "layer2" || showLayer == "layer3"
@@ -149,9 +150,7 @@ const CourseCurriculum = ({ propsValue, tabName, resetRef }) => {
                   onClick={() => handleOpenVideo(item)}
                 >
                   <div className="tabs-deschovr d-flex align-items-center rounded">
-                    <div
-                      className="w-100 pg-sb-topic d-flex align-items-center justify-content-between"
-                    >
+                    <div className="w-100 pg-sb-topic d-flex align-items-center justify-content-between">
                       <div className="d-flex justify-content-between">
                         <span className="videoimage">
                           <FaPlayCircle className="videoIcon" />
@@ -202,29 +201,101 @@ const CourseCurriculum = ({ propsValue, tabName, resetRef }) => {
           topic_Ary &&
           topic_Ary.map((item, i) => {
             return (
-              <VideoTab
-                item={item}
-                key={i}
-                Index={i}
-                nextIndex={getLayer3Data}
-                // image={topic_icon}
-              />
+              <div
+                className=" pg-tabs-description mt-3"
+                onClick={() => getLayer3Data(i)}
+              >
+                <div className="tabs-deschovr d-flex align-items-center rounded">
+                  <div
+                    className="pg-sb-topic d-flex align-items-center"
+                    style={{ width: "97%" }}
+                  >
+                    <span className="videoimage">
+                      <img
+                        src={
+                          item.image_icon && item.image_icon.length
+                            ? item.image_icon
+                            : item.image
+                        }
+                        height={"60px"}
+                      />
+                      {/* <img src={item} height={'50px'}/>
+            <i className="fa fa-file-text" aria-hidden="true"></i>  */}
+                    </span>
+
+                    {/* <h3>{item.title}</h3> */}
+                    <div className="subjectDetails">
+                      <p className="m-0 sub_name">{item.title}</p>
+                      {item.role == "subject" && (
+                        <p className="m-0 sub_topics">{item.content} Topics</p>
+                      )}
+                      {item.role == "topic" && (
+                        <p className="m-0 sub_topics">{item.content} video's</p>
+                      )}
+                    </div>
+                  </div>
+                  <div className="pg-sb-topic pe-2">
+                    <span className="videoimage text-center">
+                      {/* {item.is_locked == '0' ?   */}
+                      {/* <i className="fa fa-angle-right" aria-hidden="true"></i> */}
+                      <IoIosArrowForward />
+                      {/* :  <img src={lock_icon}/>} */}
+                    </span>
+                  </div>
+                </div>
+              </div>
             );
           })
         ) : (
           showLayer == "layer1" &&
           //   layer1Data &&
           //   layer1Data?.meta?.list?.map((item, i) => {
-          layer1Data &&
-          layer1Data.map((item, i) => {
+          subject_Ary &&
+          subject_Ary.map((item, i) => {
             return (
-              <VideoTab
-                item={item}
-                key={i}
-                Index={i}
-                nextIndex={getLayer2Data}
-                // image={subject_icon}
-              />
+              <div
+                className=" pg-tabs-description mt-3"
+                onClick={() => getLayer2Data(i)}
+              >
+                <div className="tabs-deschovr d-flex align-items-center rounded">
+                  <div
+                    className="pg-sb-topic d-flex align-items-center"
+                    style={{ width: "97%" }}
+                  >
+                    <span className="videoimage">
+                      <img
+                        src={
+                          item.image_icon && item.image_icon.length
+                            ? item.image_icon
+                            : item.image
+                        }
+                        height={"60px"}
+                      />
+                      {/* <img src={item} height={'50px'}/>
+            <i className="fa fa-file-text" aria-hidden="true"></i>  */}
+                    </span>
+
+                    {/* <h3>{item.title}</h3> */}
+                    <div className="subjectDetails">
+                      <p className="m-0 sub_name">{item.title}</p>
+                      {item.role == "subject" && (
+                        <p className="m-0 sub_topics">{item.content} Topics</p>
+                      )}
+                      {item.role == "topic" && (
+                        <p className="m-0 sub_topics">{item.content} video's</p>
+                      )}
+                    </div>
+                  </div>
+                  <div className="pg-sb-topic pe-2">
+                    <span className="videoimage text-center">
+                      {/* {item.is_locked == '0' ?   */}
+                      {/* <i className="fa fa-angle-right" aria-hidden="true"></i> */}
+                      <IoIosArrowForward />
+                      {/* :  <img src={lock_icon}/>} */}
+                    </span>
+                  </div>
+                </div>
+              </div>
             );
           })
         )}

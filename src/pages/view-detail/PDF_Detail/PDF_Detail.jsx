@@ -4,10 +4,11 @@ import { subject_PDF_Ary } from "../../../../public/assets/sampleArry";
 import { topic_PDF_Ary } from "../../../../public/assets/sampleArry";
 import { PDF_Ary } from "../../../../public/assets/sampleArry";
 import Button1 from "../../../component/buttons/button1/button1";
-import PDF_tab from "../PDF_tab/PDF_tab";
+// import PDF_tab from "../PDF_tab/PDF_tab";
+import { IoIosArrowForward } from "react-icons/io";
 
-const pdf_download1 = '/assets/images/download1.png'
-const pdf_download2 = '/assets/images/download2.png'
+const pdf_download1 = "/assets/images/download1.png";
+const pdf_download2 = "/assets/images/download2.png";
 
 const PDF_Detail = ({ propsValue, tabName, resetRef }) => {
   const [layer1Data, setLayer1Data] = useState();
@@ -31,8 +32,6 @@ const PDF_Detail = ({ propsValue, tabName, resetRef }) => {
     setShowLayer("layer1");
     return () => setShowLayer("layer1");
   }, []);
-
-  
 
   const getLayer2Data = (index) => {
     setLayer1Index(index);
@@ -92,7 +91,7 @@ const PDF_Detail = ({ propsValue, tabName, resetRef }) => {
       <section className="p-3 page-section-6">
         <div className=" custom-breadcrumb">
           <span
-             ref={resetRef}
+            ref={resetRef}
             className={showLayer == "layer1" ? "breadcrumb" : "breadcrumb"}
             onClick={() => {
               setShowLayer("layer1");
@@ -110,8 +109,8 @@ const PDF_Detail = ({ propsValue, tabName, resetRef }) => {
               showLayer == "layer2" ? "active-breadcrumb" : "breadcrumb"
             }
             onClick={() => {
-                setShowLayer("layer2");
-              }}
+              setShowLayer("layer2");
+            }}
           >
             {/* {(layer2List != undefined && showLayer == "layer2") || */}
             {showLayer == "layer2" || showLayer == "layer3"
@@ -136,8 +135,8 @@ const PDF_Detail = ({ propsValue, tabName, resetRef }) => {
         {showLayer == "layer3" ? (
           //   layer3Data ? (
           //     layer3Data.list.map((item, i) => {
-            PDF_Ary ? (
-              PDF_Ary.map((item, i) => {
+          PDF_Ary ? (
+            PDF_Ary.map((item, i) => {
               return (
                 <div
                   className=" pg-tabs-description mt-3"
@@ -145,19 +144,19 @@ const PDF_Detail = ({ propsValue, tabName, resetRef }) => {
                   onClick={() => handleOpenVideo(item)}
                 >
                   <div className="tabs-deschovr d-flex align-items-center rounded">
-                    <div
-                      className="w-100 pg-sb-topic d-flex align-items-center justify-content-between"
-                    >
+                    <div className="w-100 pg-sb-topic d-flex align-items-center justify-content-between">
                       <div className="d-flex justify-content-between">
-                          <img
-                            src={item.image ? item.image : ''}
-                            height={"60px"}
-                          />
-                          {/* <i className="fa fa-file-text" aria-hidden="true"></i> */}
+                        <img
+                          src={item.image ? item.image : ""}
+                          height={"60px"}
+                        />
+                        {/* <i className="fa fa-file-text" aria-hidden="true"></i> */}
                         <div className="subjectDetails">
                           <p className="m-0 sub_name">{item.title}</p>
                           {item.role == "PDF" && (
-                            <p className="m-0 sub_topics">{item.release_date}</p>
+                            <p className="m-0 sub_topics">
+                              {item.release_date}
+                            </p>
                           )}
                         </div>
                       </div>
@@ -165,12 +164,20 @@ const PDF_Detail = ({ propsValue, tabName, resetRef }) => {
                         <div className="btnsalltbba text-center d-flex">
                           {" "}
                           {/* {(isLogin && item.is_locked == "0") || */}
-                          {item.isDownload ? <img src={pdf_download1} className="download_image" alt="" /> : <img src={pdf_download2}  className="download_image" alt="" />}
-                          <Button1
-                            value="Read"
-                            handleClick={handleRead}
-                          />
-                          {" "}
+                          {item.isDownload ? (
+                            <img
+                              src={pdf_download1}
+                              className="download_image"
+                              alt=""
+                            />
+                          ) : (
+                            <img
+                              src={pdf_download2}
+                              className="download_image"
+                              alt=""
+                            />
+                          )}
+                          <Button1 value="Read" handleClick={handleRead} />{" "}
                         </div>
                       </div>
                     </div>
@@ -179,9 +186,7 @@ const PDF_Detail = ({ propsValue, tabName, resetRef }) => {
               );
             })
           ) : (
-            <div className="text-center">
-              {/* <NoDataFound /> */}
-            </div>
+            <div className="text-center">{/* <NoDataFound /> */}</div>
           )
         ) : showLayer == "layer2" ? (
           //   layer2List &&
@@ -189,29 +194,101 @@ const PDF_Detail = ({ propsValue, tabName, resetRef }) => {
           topic_PDF_Ary &&
           topic_PDF_Ary.map((item, i) => {
             return (
-              <PDF_tab
-                item={item}
-                key={i}
-                Index={i}
-                nextIndex={getLayer3Data}
-                // image={topic_icon}
-              />
+              <div
+                className=" pg-tabs-description mt-3"
+                onClick={() => getLayer3Data(i)}
+              >
+                <div className="tabs-deschovr d-flex align-items-center rounded">
+                  <div
+                    className="pg-sb-topic d-flex align-items-center"
+                    style={{ width: "97%" }}
+                  >
+                    <span className="videoimage">
+                      <img
+                        src={
+                          item.image_icon && item.image_icon.length
+                            ? item.image_icon
+                            : item.image
+                        }
+                        height={"60px"}
+                      />
+                      {/* <img src={item} height={'50px'}/> */}
+                      {/* <i className="fa fa-file-text" aria-hidden="true"></i> */}
+                    </span>
+
+                    {/* <h3>{item.title}</h3> */}
+                    <div className="subjectDetails">
+                      <p className="m-0 sub_name">{item.title}</p>
+                      {item.role == "subject" && (
+                        <p className="m-0 sub_topics">{item.content} Topics</p>
+                      )}
+                      {item.role == "topic" && (
+                        <p className="m-0 sub_topics">{item.content} PDF's</p>
+                      )}
+                    </div>
+                  </div>
+                  <div className="pg-sb-topic pe-2">
+                    <span className="videoimage text-center">
+                      {/* {item.is_locked == '0' ?   */}
+                      {/* <i className="fa fa-angle-right" aria-hidden="true"></i> */}
+                      <IoIosArrowForward />
+                      {/* :  <img src={lock_icon}/>} */}
+                    </span>
+                  </div>
+                </div>
+              </div>
             );
           })
         ) : (
           showLayer == "layer1" &&
           //   layer1Data &&
           //   layer1Data?.meta?.list?.map((item, i) => {
-            subject_PDF_Ary &&
-            subject_PDF_Ary.map((item, i) => {
+          subject_PDF_Ary &&
+          subject_PDF_Ary.map((item, i) => {
             return (
-              <PDF_tab
-                item={item}
-                key={i}
-                Index={i}
-                nextIndex={getLayer2Data}
-                // image={subject_icon}
-              />
+              <div
+                className=" pg-tabs-description mt-3"
+                onClick={() => getLayer2Data(i)}
+              >
+                <div className="tabs-deschovr d-flex align-items-center rounded">
+                  <div
+                    className="pg-sb-topic d-flex align-items-center"
+                    style={{ width: "97%" }}
+                  >
+                    <span className="videoimage">
+                      <img
+                        src={
+                          item.image_icon && item.image_icon.length
+                            ? item.image_icon
+                            : item.image
+                        }
+                        height={"60px"}
+                      />
+                      {/* <img src={item} height={'50px'}/> */}
+                      {/* <i className="fa fa-file-text" aria-hidden="true"></i> */}
+                    </span>
+
+                    {/* <h3>{item.title}</h3> */}
+                    <div className="subjectDetails">
+                      <p className="m-0 sub_name">{item.title}</p>
+                      {item.role == "subject" && (
+                        <p className="m-0 sub_topics">{item.content} Topics</p>
+                      )}
+                      {item.role == "topic" && (
+                        <p className="m-0 sub_topics">{item.content} PDF's</p>
+                      )}
+                    </div>
+                  </div>
+                  <div className="pg-sb-topic pe-2">
+                    <span className="videoimage text-center">
+                      {/* {item.is_locked == '0' ?   */}
+                      {/* <i className="fa fa-angle-right" aria-hidden="true"></i> */}
+                      <IoIosArrowForward />
+                      {/* :  <img src={lock_icon}/>} */}
+                    </span>
+                  </div>
+                </div>
+              </div>
             );
           })
         )}
