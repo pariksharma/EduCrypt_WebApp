@@ -265,7 +265,7 @@ input.searchBar {
     text-transform: capitalize;
     left: 0px;
     position: absolute;
-    top: 10px;
+    top: 12px;
     width: auto;
     padding: 0px 5px;
     font-weight: 600;
@@ -289,7 +289,60 @@ input.searchBar {
     transform: scale(1.2);    
 }
 
-.explorebtn button{
+.explorebtn button {
+    display: none;
+    font-family: "Montserrat", sans-serif;
+    position: absolute;
+    z-index: 9999;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    /* background: linear-gradient(
+        rgba(0, 0, 0, 0.7), 
+        rgba(0, 0, 0, 0.7)
+    ); */
+    border: 1px solid #FF7A00;
+    background-color: #FF7A00;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.tredingSliderSection:hover .explorebtn button {
+    font-family: "Montserrat", sans-serif;
+    display: block;
+    position: absolute;
+    z-index: 9999;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    cursor : pointer;
+    /* background: linear-gradient(
+        rgba(0, 0, 0, 0.7), 
+        rgba(0, 0, 0, 0.7)
+    ); */
+    
+    border: 1px solid #FF7A00;
+    background-color: #FF7A00;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.tredingSliderSection:hover .explorebtn{
+    background: rgba(0, 0, 0, .5);
+    display: block;
+    position: absolute;
+    z-index: 999;
+    left: 50%;
+    top: 50%;
+    border-radius: 10px;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;  
+}
+
+/* .explorebtn button{
     position: absolute;
     left: 0;
     right: 0;
@@ -305,7 +358,7 @@ input.searchBar {
       );
     border-radius: 10px;
     font-size: 24px;
-}
+} */
 
 
 /* FreeTest&Course CSS */

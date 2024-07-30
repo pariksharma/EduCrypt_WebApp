@@ -20,11 +20,9 @@ const SliderTrend = ({value}) => {
     <div className="col-12 col-sm-6 col-md-4 col-lg-3 img-fluid">
       <div 
         className="card border-0 b-radius mb-3 p-0 tredingSliderSection" 
-        onMouseEnter={() => isClient && setShowBtn(true)} 
-        onMouseLeave={() => isClient && setShowBtn(false)}
       >
         <div className="m-0 trendStripe">Best Seller</div>
-        {isClient && showBtn && (
+        {/* {isClient && showBtn && ( */}
           <div className='explorebtn'>
             {/* <FaLocationArrow 
             // onClick={() => navigate(`/explore-course/427`)} 
@@ -32,7 +30,6 @@ const SliderTrend = ({value}) => {
             /> */}
             <Button2 value={"Buy"} />
           </div>
-        )}
         {value.cover_image && (
           <img 
             style={{borderRadius: "10px"}} 
