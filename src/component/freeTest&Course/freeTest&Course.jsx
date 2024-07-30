@@ -9,7 +9,7 @@ import { isValidData } from '@/utils/helpers';
 const Free_Test_Course = () => {
   const [key, setKey] = useState('course');
   const CourseData = useSelector((state) => state.allCategory.allCourse);
-  const freeCourseAry = isValidData(CourseData) && CourseData.filter((item) => item.mrp == 0)
+  const freeCourseAry = isValidData(CourseData) && CourseData?.filter((item) => item.mrp == 0)
   console.log('freeCourseAry', freeCourseAry)
 
 
@@ -24,14 +24,14 @@ const Free_Test_Course = () => {
             className="mb-3 d-flex justify-content-center"
           >
             <Tab eventKey="course" title="Free Courses">
-              {freeCourseAry ? <FreeContent value={freeCourseAry} /> 
+              {isValidData(freeCourseAry) ? <FreeContent value={freeCourseAry} /> 
               : 
               <div className="spinner-border d-flex justify-content-center" role="status" />}
             </Tab>
             <Tab eventKey="test" title="Free Test Series">
-              {freeTestAry ? <FreeContent value={freeTestAry} /> 
+              {isValidData(freeTestAry) ? <FreeContent value={freeTestAry} /> 
               : 
-              <div>Loading ....</div>}
+              <div className="spinner-border d-flex justify-content-center" role="status" />}
             </Tab>
           </Tabs>
         </div>

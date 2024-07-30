@@ -7,7 +7,7 @@ import { isValidData } from "@/utils/helpers";
 const CourseDetail = ({ value, propsValue, title }) => {
   const [active, setActive] = useState(1);
 
-  console.log('propsValue', propsValue)
+  // console.log('propsValue', propsValue)
   const description = value;
 
   return (

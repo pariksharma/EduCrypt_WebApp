@@ -12,10 +12,16 @@ const content_title = "Selection Hi Jawab Hai Something Special For VCAINS"
 const Card3 = ({value}) => {
 
     const Router = useRouter()
+    // console.log('value', value)
 
     const handleExplore = () => {
-        // Router.push(`/online-courses/details/${value.id}`);
+        // Router.push(`/view-courses/details/${value.id}`);
     }
+
+    const handleBuy = () => {
+
+    }
+
   return (
         <div className="card border-0 shadow b-radius mb-3 p-2 course_card1 m-3">
             {value.desc_header_image && <img style={{borderRadius: "10px"}} src={value.desc_header_image} className="card-img-top" alt="..." />}
@@ -32,6 +38,7 @@ const Card3 = ({value}) => {
                         <span className="review"><p>{165} reviews</p></span>
                     </div>
                 </div>
+                {value.mrp != 0 && <>
                 <div className="courseDur">
                     <div className="courseValidity">
                         <span className='validity'><MdOutlineCalendarMonth /> Validity: {`${value.validity}`}</span>
@@ -57,8 +64,12 @@ const Card3 = ({value}) => {
                         }
                     </div>
                 </div>
+                </>}
                 <div className="d-flex justify-content-between onlineCourseButtons1">
-                    <Button1 value = "Buy Now" handleClick = {handleExplore} />
+                    {value.mrp != 0 ? <Button1 value = "Buy Now" handleClick = {handleBuy} />
+                    :
+                    <Button1 value = "Explore" handleClick = {handleExplore} />
+                    }
                     {/* <Button2 value = "Buy Now" handleClick = {handleExplore} /> */}
                 </div>
             </div>

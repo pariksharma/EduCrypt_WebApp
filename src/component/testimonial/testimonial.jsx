@@ -7,7 +7,7 @@ import SliderTestimonial from '../slider/sliderTestimonial/sliderTestimonial';
 import { get_token, TestScreenWidth } from '../../utils/helpers';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { encrypt, decrypt } from '../../utils/helpers';
+import { encrypt, decrypt, isValidData } from '../../utils/helpers';
 import { getTestimonialService } from '@/services';
 
 const Testimonial = () => {
@@ -60,21 +60,19 @@ const Testimonial = () => {
 
     return (
         <div className='container mb-3 test_container'>
+            {isValidData(testimonial_Ary1) && <>
             <div className='testimonial_heading'>
                 <h1>Testimonials</h1>
                 <div>Lorem Ipsum is simply dummy text of the printing</div>
             </div>
             <div className='container-fluid'>
-                {isLoading ? (
-                    <Slider {...settings}>
-                        {testimonial_Ary1 && testimonial_Ary1.map((item, index) => {
-                            return <SliderTestimonial value={item} key={index} />
-                        })}
-                    </Slider>
-                ) : (
-                    <div>Loading...</div> // Static fallback content for SSR
-                )}
+                <Slider {...settings}>
+                    { testimonial_Ary1.map((item, index) => {
+                        return <SliderTestimonial value={item} key={index} />
+                    })}
+                </Slider>
             </div>
+            </>}
         </div>
     );
 };

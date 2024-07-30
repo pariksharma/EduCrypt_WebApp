@@ -62,7 +62,7 @@ const OnlineCourse = () => {
                 </li>
                 <li
                   className="breadcrumb-item active"
-                  // onClick={() => navigate("/online-courses")}
+                  // onClick={() => navigate("/view-courses")}
                 >
                   All Courses
                 </li>

@@ -75,7 +75,7 @@ input.searchBar {
 }
 
 .banner_img img{
-    height: 300px;
+    height: 260px;
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -887,6 +887,22 @@ input.searchBar {
     font-size: 12px;
     font-family: "Poppins", sans-serif;
     color:#fff;
+}
+
+.ourProductSection svg:hover {
+    transform: scale(1.1);
+    color:#fff;
+    background-color: rgb(255, 112, 3);
+}
+
+.ourProductSection svg{
+    transition: .3s ease-in-out;
+}
+
+.ourProductSection svg:focus {
+    transform: scale(1.1);
+    color:#fff;
+    background-color: rgb(255, 112, 3);
 }
 
 .ourProductSection .card{

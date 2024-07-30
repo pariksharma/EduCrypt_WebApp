@@ -11,7 +11,7 @@ const SliderContent = ({freeCourse, title}) => {
 
     const handleExplore = () => {
         console.log("Clicked ==========");
-        router.push(`/view-detail/${freeCourse.id}`);
+        router.push(`/view-courses/details/${freeCourse.id}`);
         // navigate('/viewDetail/422')
         // location.reload()
     }

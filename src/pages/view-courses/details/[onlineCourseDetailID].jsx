@@ -52,7 +52,7 @@ const ViewOnlineCourseDetail = () => {
       response_getCourseDetail_service.data,
       token
     );
-    // console.log('get_courseDetail', response_getCourseDetail_data);
+    console.log('get_courseDetail', response_getCourseDetail_data);
     if (response_getCourseDetail_data.status) {
       setOnlineCourseAry(response_getCourseDetail_data.data.course_detail);
       setRelateCourseAry(
@@ -63,7 +63,7 @@ const ViewOnlineCourseDetail = () => {
       setPdfData(
         response_getCourseDetail_data?.data?.course_detail?.course_syallbus_pdf
       );
-      console.log("detail", response_getCourseDetail_data);
+      // console.log("detail", response_getCourseDetail_data);
     }
   };
 
@@ -91,9 +91,11 @@ const ViewOnlineCourseDetail = () => {
                 >
                   Home
                 </li>
+                {onlineCourseAry.mrp != 0 &&
                 <li className="breadcrumb-item" onClick={() => router.back()}>
                   Online Courses
                 </li>
+                }
                 <li className="breadcrumb-item active">Details</li>
               </ol>
             </nav>
@@ -113,7 +115,7 @@ const ViewOnlineCourseDetail = () => {
                 </span>{" "}
                 120 PDF's
               </p>
-              {onlineCourseAry.validity != "0 Days" && (
+              {onlineCourseAry.mrp != 0 && onlineCourseAry.validity != "0 Days" && (
                 <p>
                   <span>
                     <IoDocumentTextOutline className="video_icon" />
@@ -134,6 +136,7 @@ const ViewOnlineCourseDetail = () => {
                 </span>
               </div>
             </div>
+            {onlineCourseAry.mrp != 0 &&
             <div className="d-flex button_price">
               <div className="share">
                 <button className="ml-2 button1_share"><FaShare /></button>
@@ -159,6 +162,7 @@ const ViewOnlineCourseDetail = () => {
                     </div>
                 </div> */}
             </div>
+            }
             <div className="courseCard">
               <Card3 value={onlineCourseAry} />
             </div>

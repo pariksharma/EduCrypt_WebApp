@@ -54,7 +54,7 @@ const OurProduct = ({ value, data }) => {
     const formData = new FormData();
     const response_faculty_service = await getFaculty_Service(formData);
     const faculty_service_Data = decrypt(response_faculty_service.data, token)
-    console.log('faculty', faculty_service_Data.data)
+    // console.log('faculty', faculty_service_Data.data)
     if(faculty_service_Data.status) {
       setfacultyAry(faculty_service_Data.data)
     }

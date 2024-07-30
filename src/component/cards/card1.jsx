@@ -14,7 +14,7 @@ const Card1 = ({value}) => {
     const Router = useRouter()
 
     const handleExplore = () => {
-        Router.push(`/online-courses/details/${value.id}`);
+        Router.push(`/view-courses/details/${value.id}`);
     }
   return (
         <div className="card border-0 shadow b-radius mb-3 p-2 course_card m-4">
