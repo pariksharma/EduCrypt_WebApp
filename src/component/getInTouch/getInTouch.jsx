@@ -20,7 +20,7 @@ const GetInTouch = () => {
             <div className='col-md-6 col-lg-6 col-sm-6'>
                 {/* <div className='row'> */}
                     <div className='git_heading'>
-                        <h1>Get In Touch</h1>
+                        <h1 className='main-title'>Get In Touch</h1>
                     </div>
                     <div className='git_title'>
                         <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem in illo quaerat!</div>

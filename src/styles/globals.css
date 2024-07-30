@@ -12,8 +12,12 @@ nav #eduNav{
     box-shadow: 0px 1px 4px 0px #00000021;
 }
 
+#eduNav button {
+    padding: 8px 35px;
+}
+
 .logoImg {
-    width: 120px;
+    width: 190px;
 }
 
 .userBtn{
@@ -74,8 +78,9 @@ input.searchBar {
     background-color: rgb(255, 112, 3) !important;
 }
 
-.banner_img img{
-    height: 260px;
+.banner_img img {
+    height: auto;
+    width: 100%;
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -383,40 +388,38 @@ input.searchBar {
     color: rgb(255, 112, 3) !important;
     background-color: var(--bs-nav-tabs-link-active-bg) !important;
     border-color: var(--bs-nav-tabs-link-active-border-color) !important;
-    font-weight: 800 !important;
-    font-size: 48px !important;
+    font-weight: 700 !important;
+    font-family: "Reddit Sans", sans-serif;
+    font-size: 36px !important;
     border: none !important;
     border-bottom: 5px solid rgb(255, 112, 3) !important;
     outline: none !important;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
 }
 
 .freeTC_container .nav-link  {
     color: rgb(152, 152, 152) !important;
     border: none !important;
-    font-weight: 800 !important;
-    font-size: 48px !important;
+    font-weight: 700 !important;
+    font-family: "Reddit Sans", sans-serif;
+    font-size: 36px !important;
     outline: none !important;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
 }
 
 .freeTC_container .nav-link:hover  {
     border: none !important;
     color: rgb(152, 152, 152) !important;
-    font-weight: 800 !important;
-    font-size: 48px !important;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
-    outline: none !important;
+    font-weight: 700 !important;
+    font-size: 36px !important;
+    font-family: "Reddit Sans", sans-serif;
 }
 
 .freeTC_container .nav-link.active:hover  {
     color: rgb(255, 112, 3) !important;
     border: none !important;
     border-bottom: 5px solid rgb(255, 112, 3) !important;
-    font-weight: 800 !important;
-    font-size: 48px !important;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
-    outline: none !important;
+    font-weight: 700 !important;
+    font-size: 36px !important;
+    font-family: "Reddit Sans", sans-serif;
 }
 
 .freeTC_container .nav-tabs {
@@ -649,10 +652,11 @@ input.searchBar {
 }
 
 .slideTitle {
-    font-family: "Reddit Sans Condensed", sans-serif;
-    font-size: 20px;
+    font-family: "Reddit Sans", sans-serif;
+    font-size: 18px;
     font-weight: 700;
-    color: #363A3D;
+    color: #2D2D2D;
+    text-transform: capitalize;
 }
 .free-badge {
     font-size: 12px;
@@ -673,37 +677,46 @@ input.searchBar {
     padding: 5px 36px;
 }
 
+.slick-prev, .slick-next {
+    box-shadow: 0px 7px 28px 0px #00000021!important;
+    font-size: 12px!important;
+    border: 0px!important;
+}
+
 .courserate{
     display: flex;
     justify-content: space-between;
 }
 
 .freeCard .courserate .rating {
-    background-color: #0eb80e;
-    color: white;
-    align-items: center;
+    background: #5FB963;
+    color: #fff;
+    font-family: "Reddit Sans", sans-serif;
     display: flex;
-    font-size: 13px;
-    padding: 0px 4px;
+    align-items: center;
+    font-size: 12px;
+    padding: 2px 6px;
     border-radius: 5px;
+    gap: 5px;
 }
 
 .freeCard .courserate .rating svg{
-    font-size: 10px;
+    font-size: 16px;
 }
 
-.freeCard .courseReview .review p {
+.freeCard p.review{
     padding-left: 10px;
     font-size: 13px;
-    color: grey;
+    font-family: "Reddit Sans", sans-serif;
+    color: #878787;
 }
 
 .freeStripe {
-    background: #0eb80e;
+    background: #5FB963;
     color: #fff;
     font-family: "Montserrat", sans-serif;
     font-size: 12px;
-    border-radius: 10px;
+    border-radius: 20px;
     text-transform: uppercase;
     /* right: 0px; */
     /* position: absolute;
@@ -742,12 +755,13 @@ input.searchBar {
     justify-content: center;
 }
 
-.heading_prod,h1 {
-    font-weight: 800 !important;
+.heading_prod,h1.main-title {
+    font-weight: 700 !important;
+    color: #161616;
 }
 
 .ourProductSection .card{
-    margin: 10px 20px;
+    margin: 10px 10px;
 }
 
 .slick-track{
@@ -934,21 +948,37 @@ input.searchBar {
 }
 
 .blogDate {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: rgb(255, 112, 3);
-    font-size: 15px;
+    font-family: "Reddit Sans", sans-serif;
+    color: #393E46;
+    font-size: 12px;
     margin-bottom: 0;
 }
 
 .blogTitle {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 24px;
-    font-weight: 500;
+    font-family:"Reddit Sans",sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #222831;
+
+}
+.readBtn{
+    color: #FF7426;
+    font-family: "Reddit Sans", sans-serif;
+}
+.blog-text{
+    color: #393E46;
+    font-size: "Reddit Sans",sans-serif;
+    font-size: 12px;
+    font-weight: 400;
 }
 
 .blogBtn .nav-item {
     display: flex;
     justify-content: center;
+}
+
+.blogBtn button {
+    padding: 8px 35px;
 }
 
 
@@ -966,9 +996,9 @@ input.searchBar {
     margin-bottom: 30px;
 }
 
-.testimonial_heading h1 {
+/* .testimonial_heading h1 {
     font-weight: 800 !important;
-}
+} */
 
 .testimonial_heading p{
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -1076,30 +1106,30 @@ input.searchBar {
     padding: 5px;
 }
 .testTitle{
-    color: #000000;
-    font-size: 14px;
-    font-family: "Public Sans", sans-serif;
+    color: #161616;
+    font-size: 16px;
+    font-family: "Reddit Sans", sans-serif;
     font-weight: 600;
 }
 .test-text{
-    color: #363A3D;
-    font-family: "Public Sans", sans-serif;
-    font-weight: 500;
-    font-size: 10px;
+    color: #3F3F3F;
+    font-family: "Reddit Sans", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
 }
 .cardQuotes {
     position: absolute;
     right: 15px;
     top: 10px;
     color: #FFC27A;
-    font-size: 20px;
+    font-size: 30px;
 }
 .p-text p{
     margin: 10px;
-    color: #595f63;
-    font-family: "Public Sans", sans-serif;
-    font-weight: 500;
-    font-size: 13px;
+    color: #717171;
+    font-family: "Reddit Sans", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
 }
 .testi-text{
     color: #8A8A8A;
@@ -1176,6 +1206,9 @@ input.searchBar {
 
 .sendbtn {
     margin-top: 18px;
+}
+.sendbtn button {
+    padding: 8px 35px;
 }
 
 .sendbtn a{
@@ -1337,7 +1370,7 @@ input.searchBar {
     font-size: 13px;
 }
 
-.freeCourseReview .review p {
+.freeCourseReview p.review {
     padding-left: 10px;
     font-size: 16px;
     color: grey;
@@ -1877,7 +1910,7 @@ input.searchBar {
     font-size: 10px;
 }
 
-.courseReview .review p {
+p.review  {
     padding-left: 10px;
     font-size: 13px;
     color: grey;

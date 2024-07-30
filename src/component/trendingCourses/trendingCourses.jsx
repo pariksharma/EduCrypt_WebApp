@@ -48,7 +48,7 @@ const TrendingCourses = () => {
         <div className='container trendContainer'>
             <div className='trending_heading'>
                 {trendCourseAry && <img src={trendImg} alt='img' />}
-                <h1>Trending Courses</h1>
+                <h1 class="main-title">Trending Courses</h1>
             </div>
             <div className="row align-items-center justify-content-center sldr_container">
                 {isValidData(trendCourseAry) ? (

@@ -26,7 +26,7 @@ const SliderContent = ({freeCourse, title}) => {
 
             {/* <div className="m-0 free-badge">FREE</div> */}
             <div className="card-body pt-3 px-0 pb-0">
-                <h6 className="mb-2 slideTitle">
+                <h6 className="slideTitle">
                     {freeCourse.title}
                 </h6>
                 {/* <div className="m-0 clearfix">
@@ -34,17 +34,13 @@ const SliderContent = ({freeCourse, title}) => {
                     <div className="countTitle ms-3"><i className="far fa-file-alt"></i> 40 PDF's</div>
                 </div> */}
                 <div className="courserate">
-                    <div className='d-flex'>
-                        <div className="courseRating">
-                            <span className="rating"><IoStar /> {4.1}</span>
-                        </div>
-                        <div className="courseReview">
-                            <span className="review"><p>{166} reviews</p></span>
-                        </div>
+                    <div className='d-flex align-items-center'>
+                        <span className="rating"><IoStar /> {4.1}</span>
+                        <p className="m-0 review">{166} reviews</p>
                     </div>
-                    <div className="freeStripe">
+                    <p className="m-0 freeStripe">
                         Free
-                    </div>
+                    </p>
                 </div>
                 <hr />
                 {/* <button className="btn exploreBtn">Explore now</button> */}

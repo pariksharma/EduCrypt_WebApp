@@ -1,7 +1,9 @@
 .userBtn{
     color: #fff;
     background: #FF7426;
-    font-size: 12px;
+    font-size: 14px;
+    font-family: "Reddit Sans", sans-serif;
+    font-weight: 600;
 }
 
 .userBtn:hover {

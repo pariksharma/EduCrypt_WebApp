@@ -62,8 +62,8 @@ const Testimonial = () => {
         <div className='container mb-3 test_container'>
             {isValidData(testimonial_Ary1) && <>
             <div className='testimonial_heading'>
-                <h1>Testimonials</h1>
-                <div>Lorem Ipsum is simply dummy text of the printing</div>
+                <h1 class="main-title">Testimonials</h1>
+                {/* <p>Lorem Ipsum is simply dummy text of the printing</p> */}
             </div>
             <div className='container-fluid'>
                 <Slider {...settings}>

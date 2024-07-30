@@ -26,8 +26,8 @@ export default function Home() {
     const token = get_token();
     const formData = {
       // 'domain': tenantName
-      // domain: "https://narayna.videocrypt.in/webstaging/",
-      domain: "https://educrypt.netlify.app"
+      domain: "https://narayna.videocrypt.in/webstaging/",
+      // domain: "https://educrypt.netlify.app"
     };
     const response_content_service = await getAppDetial(
       encrypt(JSON.stringify(formData), token)
@@ -60,6 +60,9 @@ export default function Home() {
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
           crossorigin="anonymous"
         />
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" integrity="sha512-dPXYcDub/aeb08c63jRq/k6GaKccl256JQy/AnOq7CAnEZ9FzSL9wSbcZkMp4R26vBsMLFYH4kQ67/bbV8XaCQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
         <script
           src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js"
           crossorigin
@@ -86,10 +89,10 @@ export default function Home() {
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
-          rel="stylesheet"
-        />
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Reddit+Sans+Condensed:wght@200..900&family=Reddit+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet" />
 
         {/* <!-- Font Awesome CDN --> */}
         <link

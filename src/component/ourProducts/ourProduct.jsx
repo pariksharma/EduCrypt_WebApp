@@ -64,7 +64,7 @@ const OurProduct = ({ value, data }) => {
     return (
       <div className="container Product_container">
         <div className="heading_prod">
-          <h1>Our Products</h1>
+          <h1 class="main-title">Our Products</h1>
         </div>
         <div className="row align-items-center text-white prod_slider">
           {status ? (
