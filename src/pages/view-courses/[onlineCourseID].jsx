@@ -30,11 +30,11 @@ const OnlineCourse = () => {
   const fetchCourseDetail = async (onlineCourseID) => {
     const token = get_token();
     const formData = {
-      'course_type':0,
+      'course_type':onlineCourseID,
       'page':1,
       'sub_cat':1,
       'main_cat':0,
-      'course_ids': onlineCourseID
+      // 'course_ids': onlineCourseID
     }
     const response_getCourse_service = await getCourse_service(encrypt(JSON.stringify(formData),token));
     const response_getCourse_data = decrypt(response_getCourse_service.data, token)

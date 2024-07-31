@@ -10,7 +10,7 @@ const Banner = () => {
     const bannerData = useSelector((state) => state.allCategory?.allCategory?.banner_list_web)
     // console.log('bannerData123', bannerData)
 
-    console.log("BannerData 9",bannerData)
+    // console.log("BannerData 9",bannerData)
     const status = isValidData(bannerData)
     const handleSelect = useCallback((selectedIndex) => {
         setIndex(selectedIndex);
