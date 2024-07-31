@@ -23,7 +23,9 @@ const GetInTouch = () => {
                         <h1 className='main-title'>Get In Touch</h1>
                     </div>
                     <div className='git_title'>
-                        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem in illo quaerat!</div>
+                        <p className='mb-2'>
+                            Lorem ipsum dolor sit at, consectetur adipielit. Facilisi <br /> fermentum, dignissim pharetra.
+                        </p>
                     </div>
                     <div className='form d-flex flex-column'>
                         <input type='text' placeholder='Name' />

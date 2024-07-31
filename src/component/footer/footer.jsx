@@ -41,7 +41,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="col-12 col-sm-6 col-md-4 col-lg-2">
-                    <h4 className="m-0 my-4 footTitle">Comapany</h4>
+                    <h4 className="m-0 my-3 footTitle">Comapany</h4>
                     <ul className="list-unstyled">
                         <li className="mb-2">
                             <a href="#" className="text-decoration-none">About Us</a>
@@ -61,7 +61,7 @@ const Footer = () => {
                     </ul>
                 </div>
                 <div className="col-12 col-sm-6 col-md-4 col-lg-2">
-                    <h4 className="m-0 my-4 footTitle">Products</h4>
+                    <h4 className="m-0 my-3 footTitle">Products</h4>
                     <ul className="list-unstyled">
                         <li className="mb-2">
                             <a href="#" className="text-decoration-none">Online/Offline Mock Tests</a>
@@ -84,7 +84,7 @@ const Footer = () => {
                     </ul>
                 </div>
                 <div className="col-12 col-sm-6 col-md-4 col-lg-2">
-                    <h4 className="m-0 my-4 footTitle">Help & Support</h4>
+                    <h4 className="m-0 my-3 footTitle">Help & Support</h4>
                     <ul className="list-unstyled">
                         <li className="mb-2">
                             <a href="#" className="text-decoration-none">FAQ's</a>
@@ -104,7 +104,7 @@ const Footer = () => {
                     </ul>
                 </div>
                 <div className="col-12 col-sm-6 col-md-4 col-lg-2">
-                    <h4 className="m-0 my-4 footTitle">Download App</h4>
+                    <h4 className="m-0 my-3 footTitle">Download App</h4>
                     <ul className="list-unstyled">
                         <li className="mb-2">
                             {playStoreLogo && <img style={{width: "96px"}} src={playStoreLogo} alt="" />}
